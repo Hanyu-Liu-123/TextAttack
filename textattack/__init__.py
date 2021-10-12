@@ -17,6 +17,7 @@ from .attack import Attack
 from .attacker import Attacker
 from .trainer import Trainer
 from .metrics import Metric
+from . import shared
 
 from . import (
     attack_recipes,
