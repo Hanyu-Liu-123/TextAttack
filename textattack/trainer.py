@@ -88,6 +88,7 @@ class Trainer:
         make sure to protect the “entry point” of the program by using :obj:`if __name__ == '__main__':`.
         If not, each worker process used for generating adversarial examples will execute the training code again.
     """
+    raise Error
 
     def __init__(
         self,
