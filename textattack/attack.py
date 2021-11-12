@@ -207,6 +207,7 @@ class Attack:
         def to_cuda(obj):
             visited.add(id(obj))
             if isinstance(obj, torch.nn.Module):
+                print(f"{obj} to {textattack.shared.utils.device}")
                 obj.to(textattack.shared.utils.device)
             elif isinstance(
                 obj,
@@ -232,6 +233,7 @@ class Attack:
                         to_cuda(item)
 
         to_cuda(self)
+        print("Visited:", visited)
 
     def _get_transformations_uncached(self, current_text, original_text=None, **kwargs):
         """Applies ``self.transformation`` to ``text``, then filters the list
