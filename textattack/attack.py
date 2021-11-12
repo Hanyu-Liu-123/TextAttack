@@ -203,11 +203,13 @@ class Attack:
     def cuda_(self):
         """Move any `torch.nn.Module` models that are part of Attack to GPU."""
         visited = set()
+        record = []
 
         def to_cuda(obj):
             visited.add(id(obj))
+            record.append(obj)
             if isinstance(obj, torch.nn.Module):
-                print(f"{obj} to {textattack.shared.utils.device}")
+                print(f"hello {obj} to {textattack.shared.utils.device}")
                 obj.to(textattack.shared.utils.device)
             elif isinstance(
                 obj,
@@ -233,7 +235,7 @@ class Attack:
                         to_cuda(item)
 
         to_cuda(self)
-        print("Visited:", visited)
+        print("Visited:", record)
 
     def _get_transformations_uncached(self, current_text, original_text=None, **kwargs):
         """Applies ``self.transformation`` to ``text``, then filters the list
