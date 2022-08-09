@@ -9,7 +9,7 @@ class ChineseWordSwapHowNet(WordSwap):
 
     def __init__(self):
         self.hownet_dict = OpenHowNet.HowNetDict(init_sim=True)
-        self.topk = 10
+        self.topk = 5
 
     def _get_replacement_words(self, word):
         """Returns a list containing all possible words with N characters
