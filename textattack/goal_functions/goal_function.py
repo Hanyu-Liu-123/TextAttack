@@ -128,7 +128,6 @@ class GoalFunction(ABC):
         raise NotImplementedError()
 
     def _should_skip(self, model_output, attacked_text):
-        print("shoul skip", model_output, attacked_text)
         return self._is_goal_complete(model_output, attacked_text)
 
     @abstractmethod
