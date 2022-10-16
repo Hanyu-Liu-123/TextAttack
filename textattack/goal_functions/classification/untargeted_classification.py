@@ -23,6 +23,9 @@ class UntargetedClassification(ClassificationGoalFunction):
         super().__init__(*args, **kwargs)
 
     def _is_goal_complete(self, model_output, _):
+        print(self.ground_truth_output)
+        print(model_output.argmax())
+        print(model_output)
         if self.target_max_score:
             return model_output[self.ground_truth_output] < self.target_max_score
         elif (model_output.numel() == 1) and isinstance(
